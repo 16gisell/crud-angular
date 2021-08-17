@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+      <div class="alert alert-danger" role="alert" *ngIf="isError">
+        {{message}}
+      </div>
+      <div class="card mb-3" style="max-width: 540px; background-color: bisque;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="../../../../assets/img/g1.png" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-header">
+              <h5 class="card-title text-center">Login</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="loginGroup" (ngSubmit)="onSubmit()">
+                  <div class="form-floating">
+                    <input type="email" class="form-control" id="email" formControlName="email" placeholder="email" required>
+                    <label for="floatingInput">Email address</label>
+                  </div>
+                  <div *ngIf="loginGroup.controls['email'].invalid && (loginGroup.controls['email'].dirty || loginGroup.controls['email'].touched)" class="alert alert-danger">
+                    <div *ngIf="loginGroup.controls['email'].errors.required">
+                      email is required.
+                    </div>
+                    <div *ngIf="loginGroup.controls['email'].errors.email">
+                      the mail must have a special character example email@email.com
+                    </div>
+                  </div>
+                  <div class="form-floating">
+                    <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password" required minlength="8">
+                    <label for="floatingPassword">Password</label>
+                  </div>
+                  <div *ngIf="loginGroup.controls['password'].invalid && (loginGroup.controls['password'].dirty || loginGroup.controls['password'].touched)" class="alert alert-danger">
+                    <div *ngIf="loginGroup.controls['password'].errors.required">
+                      password is required.
+                    </div>
+                    <div *ngIf="loginGroup.controls['password'].errors.minlength">
+                      requires 8 characters minimum
+                    </div>
+                  </div>
+                  <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="!loginGroup.valid">Sign in</button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

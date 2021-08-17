@@ -1,0 +1,30 @@
+{
+  "name": "backend-crud-angular",
+  "version": "1.0.0",
+  "description": "solo descripcion",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": " cross-env NODE_ENV=production",
+    "start": "cross-env NODE_ENV=production node build/index.js",
+    "dev": "cross-env NODE_ENV=development nodemon build/index.js ",
+    "server-dev": "tsc -w"
+  },
+  "author": "gissHernandez/gisell-hernandez",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.12",
+    "promise-mysql": "^3.3.1",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/morgan": "^1.9.3"
+  }
+}

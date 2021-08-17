@@ -1,0 +1,33 @@
+<div class="content">
+  <div class="alert alert-success" role="alert" *ngIf="isTrue">
+    {{message}}
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name File</th>
+        <th scope="col">Type File</th>
+        <th scope="col">Description</th>
+        <th scope="col">Code</th>
+        <th scope="col">Acction</th>
+        <th scope="col"><button class="btn btn-primary" type="button" [routerLink]="['/newFile']">New</button></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let liste of list">
+        <th scope="row">{{liste.id_files}}</th>
+        <td>{{liste.nameFile}}</td>
+        <td>{{liste.typeFile}}</td>
+        <td>{{liste.description}}</td>
+        <td>{{liste.codeFile}}</td>
+        <td>
+          <div class="d-grid gap-2 d-md-block">
+            <button class="btn btn-danger" type="button" (click)="delet(liste.id_files)">delete</button>
+            <button class="btn btn-success" type="button" [routerLink]="['/editFile',liste.id_files]">edit</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

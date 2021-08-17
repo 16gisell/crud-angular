@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+        <div class="alert alert-danger" role="alert" *ngIf="isError">
+          {{message}}
+        </div>
+        <div class="alert alert-success" role="alert" *ngIf="isTrue">
+          {{message}}
+        </div>
+          <div class="card mb-3" style="max-width: 540px; background-color: bisque;">
+            <div class="row g-0">
+              <div class="col-md-12">
+                <div class="card-header">
+                  <h5 class="card-title text-center">New File</h5>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="crateFileGroup" (ngSubmit)="onSubmit()">
+                      <div class="form-floating">
+                        <input type="text" class="form-control" id="nameFile" formControlName="nameFile" placeholder="Name File" required >
+                        <label for="floatingInput">nameFile</label>
+                      </div>
+                      <div *ngIf="crateFileGroup.controls['nameFile'].invalid" class="alert alert-danger">
+                        <div *ngIf="crateFileGroup.controls['nameFile'].errors.required">
+                         Name is required.
+                        </div>
+                      </div>
+                      <div class="form-floating">
+                        <input type="text" class="form-control" id="typeFile" formControlName="typeFile" placeholder="Type File" required >
+                        <label for="floatingInput">typeFile</label>
+                      </div>
+                      <div *ngIf="crateFileGroup.controls['typeFile'].invalid && (crateFileGroup.controls['typeFile'].dirty || crateFileGroup.controls['typeFile'].touched)" class="alert alert-danger">
+                        <div *ngIf="crateFileGroup.controls['typeFile'].errors.required">
+                          typeFile is required.
+                        </div>
+                      </div>
+                      <div class="form-floating">
+                        <textarea type="text" class="form-control" id="description" formControlName="description" placeholder="Description" required ></textarea>
+                        <label for="floatingInput">Description</label>
+                      </div>
+                      <div *ngIf="crateFileGroup.controls['description'].invalid && (crateFileGroup.controls['description'].dirty || crateFileGroup.controls['description'].touched)" class="alert alert-danger">
+                        <div *ngIf="crateFileGroup.controls['description'].errors.required">
+                          description is required.
+                        </div>
+                      </div>
+                      <div class="form-floating">
+                        <input type="text" class="form-control" id="codeFile" formControlName="codeFile" placeholder="Code File" required >
+                        <label for="floatingInput">codeFile</label>
+                      </div>
+                      <div *ngIf="crateFileGroup.controls['codeFile'].invalid && (crateFileGroup.controls['codeFile'].dirty || crateFileGroup.controls['codeFile'].touched)" class="alert alert-danger">
+                        <div *ngIf="crateFileGroup.controls['codeFile'].errors.required">
+                          codeFile is required.
+                        </div>
+                      </div>
+                      <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="!crateFileGroup.valid">Save</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>
